@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Question For You</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            padding: 20px;
+            max-width: 90%;
+        }
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            position: relative;
+        }
+        button {
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: 0.2s;
+        }
+        #yesBtn {
+            background-color: #ffffff;
+            color: #ff477e;
+        }
+        #noBtn {
+            background-color: rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="content">
+        <h1>Angela, will you marry me?</h1>
+        <p>I want you to be the last woman in my life.</p>
+        <div class="btn-group">
+            <button id="yesBtn" onclick="saidYes()">YES! ❤️</button>
+            <button id="noBtn" ontouchstart="moveNo()" onmouseover="moveNo()">No</button>
+        </div>
+    </div>
+
+    <script>
+        function moveNo() {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            const noBtn = document.getElementById('noBtn');
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        }
+
+        function saidYes() {
+            document.getElementById('content').innerHTML = `
+                <h1>She Said YES! 💍✨</h1>
+                <p>Here’s to the rest of our lives together, Angela.</p>
+            `;
+        }
+    </script>
+
+</body>
+</html>
